@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* NCRRA Trusted Member Utility: warm ivory, deep navy, quiet teal, one amber warning accent. */
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Manrope", sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --background: #f8f7f3;
+  --foreground: #0b1e3b;
+  --card: #ffffff;
+  --card-foreground: #0b1e3b;
+  --primary: #007b78;
+  --primary-foreground: #ffffff;
+  --muted: #eef5f3;
+  --muted-foreground: #5b6473;
+  --border: #e3e6e5;
+  --ring: #007b78;
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+  }
+  button, input, textarea { font: inherit; }
+  button { -webkit-tap-highlight-color: transparent; }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+  .app-press { transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), opacity 160ms cubic-bezier(0.23, 1, 0.32, 1); }
+  .app-press:active { transform: scale(0.975); }
+  .screen-enter { animation: screen-enter 240ms cubic-bezier(0.23, 1, 0.32, 1) both; }
+  .grain { background-image: radial-gradient(circle at 20% 20%, rgb(0 123 120 / 0.055) 0, transparent 28%), radial-gradient(circle at 78% 8%, rgb(11 30 59 / 0.045) 0, transparent 26%); }
+}
+
+@keyframes screen-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-press, .screen-enter { transition: none; animation: none; }
+}

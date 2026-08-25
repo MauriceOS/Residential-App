@@ -1,0 +1,9 @@
+all:
+  vars:
+    ansible_user: deploy
+    ansible_ssh_private_key_file: ~/.ssh/ncrra-deploy
+  children:
+    ncrra_platform:
+      hosts:
+        ncrra-vps-01:
+          ansible_host: 203.0.113.10

@@ -1,0 +1,17 @@
+groups:
+  - name: ncrra-pilot
+    rules:
+      - alert: NcrraServiceUnavailable
+        expr: up == 0
+        for: 3m
+        labels:
+          severity: critical
+        annotations:
+          summary: NCRRA monitored target is unavailable
+      - alert: NcrraHighContainerRestartRisk
+        expr: increase(process_start_time_seconds[15m]) > 1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: A monitored service restarted repeatedly

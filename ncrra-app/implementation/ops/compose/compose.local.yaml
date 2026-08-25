@@ -1,0 +1,16 @@
+# Local-only override. Use with explicit non-production environment values and never expose these ports on a production host.
+services:
+  postgres:
+    ports:
+      - "127.0.0.1:5432:5432"
+  keycloak:
+    command: start-dev --import-realm
+    ports:
+      - "127.0.0.1:8081:8080"
+    volumes:
+      - ../keycloak/realm-ncrra-dev.json:/opt/keycloak/data/import/ncrra-dev-realm.json:ro
+  provider-adapter:
+    build:
+      context: ../../../backend/go/provider-adapter
+    ports:
+      - "127.0.0.1:8082:8080"

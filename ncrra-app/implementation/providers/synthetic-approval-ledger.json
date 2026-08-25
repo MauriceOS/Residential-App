@@ -1,0 +1,32 @@
+[
+  {
+    "provider_id": "kplc",
+    "agreement_reference": "SYNTHETIC-NCRRA-KPLC-AGREEMENT-001",
+    "approval_reference": "SYNTHETIC-NCRRA-OPS-APPROVAL-001",
+    "approved_by": "SYNTHETIC-APPROVER-REFERENCE-NOT-ACTUAL",
+    "recorded_at": "2026-08-25T00:00:00Z",
+    "expires_at": "2027-12-31T23:59:59Z",
+    "status": "approved",
+    "permitted_actions": ["service_ticket_handoff"]
+  },
+  {
+    "provider_id": "sgr",
+    "agreement_reference": "SYNTHETIC-NCRRA-SGR-AGREEMENT-001",
+    "approval_reference": "SYNTHETIC-NCRRA-OPS-APPROVAL-002",
+    "approved_by": "SYNTHETIC-APPROVER-REFERENCE-NOT-ACTUAL",
+    "recorded_at": "2026-08-25T00:00:00Z",
+    "expires_at": "2027-12-31T23:59:59Z",
+    "status": "approved",
+    "permitted_actions": ["member_offer_handoff"]
+  },
+  {
+    "provider_id": "jambojet",
+    "agreement_reference": "SYNTHETIC-NCRRA-JAMBOJET-AGREEMENT-001",
+    "approval_reference": "SYNTHETIC-NCRRA-OPS-APPROVAL-003",
+    "approved_by": "SYNTHETIC-APPROVER-REFERENCE-NOT-ACTUAL",
+    "recorded_at": "2026-08-25T00:00:00Z",
+    "expires_at": "2027-12-31T23:59:59Z",
+    "status": "approved",
+    "permitted_actions": ["member_offer_handoff"]
+  }
+]

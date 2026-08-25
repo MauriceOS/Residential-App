@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style>
+*{box-sizing:border-box}
+.slide-container{width:1280px;min-height:720px;background:#f8f7f3;color:#0b1e3b;font-family:Arial,Helvetica,sans-serif}
+.wrap{min-height:720px;padding:58px 80px 0}
+.eyebrow{color:#007b78;font-size:15px;letter-spacing:2px;font-weight:700;text-transform:uppercase}
+.title{margin-top:16px;font-size:48px;line-height:1.08;letter-spacing:-2.3px;font-weight:800}
+.intro{margin-top:18px;max-width:790px;font-size:22px;line-height:1.42;color:#536173}
+.comparison{margin-top:48px;display:grid;grid-template-columns:1fr 84px 1.2fr;align-items:stretch;gap:22px}
+.old{background:#f1f1ee;padding:28px 30px 0}
+.new{background:#e9f5f2;padding:28px 34px 0}
+.label{font-size:14px;letter-spacing:1.7px;text-transform:uppercase;font-weight:700;color:#65707b}
+.new .label{color:#007b78}
+.old h2,.new h2{margin:13px 0 0;font-size:27px;letter-spacing:-1.2px}
+.old p,.new p{margin:12px 0 0;font-size:17px;line-height:1.5;color:#536173}
+.new p{color:#304c51}
+.bar{display:flex;align-items:center;justify-content:center;color:#007b78;font-size:39px;font-weight:800}
+.steps{margin-top:25px;border-top:1px solid #d9dfdc}
+.steps div{padding-top:13px;margin-top:13px;font-size:16px;font-weight:700;color:#283b53}
+.steps span{display:inline-flex;align-items:center;justify-content:center;width:23px;height:23px;margin-right:10px;background:#fff;color:#007b78;font-size:12px}
+/* Reduced note top spacing to eliminate overflow while keeping title spacing intact */
+.note{margin-top:28px;border-top:1px solid #cadbd7;padding-top:17px;font-size:16px;line-height:1.45;color:#536173}
+.note strong{color:#0b1e3b}
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <div class="wrap">
+    <div class="eyebrow">Member problem to product promise</div>
+    <div class="title">One trusted place for member tasks</div>
+    <div class="intro">NCRRA should reduce the friction of fragmented support by placing services, contributions, association updates and benefits in a single member experience.</div>
+    <div class="comparison">
+      <div class="old">
+        <div class="label">Today</div>
+        <h2>Fragmented member journeys</h2>
+        <p>Routine issues can require separate informal chats, service contacts and manual follow-up.</p>
+        <div class="steps">
+          <div><span>1</span>Find the right channel</div>
+          <div><span>2</span>Repeat account details</div>
+          <div><span>3</span>Ask repeatedly for status</div>
+        </div>
+      </div>
+      <div class="bar">→</div>
+      <div class="new">
+        <div class="label">NCRRA member app</div>
+        <h2>One clear destination</h2>
+        <p>The app presents a saved connection, a guided request, an understandable ticket state and an accountable association response.</p>
+        <div class="steps">
+          <div><span>1</span>Choose a saved service connection</div>
+          <div><span>2</span>Submit one guided request</div>
+          <div><span>3</span>Track what happens next</div>
+        </div>
+      </div>
+    </div>
+    <div class="note"><strong>Design consequence:</strong> The interface must make the next member action obvious, while keeping responsibility and status visible at every point.</div>
+  </div>
+</div>
+</body>
+</html>

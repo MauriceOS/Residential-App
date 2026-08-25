@@ -1,0 +1,27 @@
+{
+  email {$ACME_EMAIL}
+  admin off
+}
+
+{$PUBLIC_DOMAIN} {
+  encode zstd gzip
+  request_body {
+    max_size 10MB
+  }
+  header {
+    Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    X-Content-Type-Options "nosniff"
+    X-Frame-Options "DENY"
+    Referrer-Policy "strict-origin-when-cross-origin"
+    -Server
+  }
+
+  # Replace with the authenticated Member BFF when the public gateway service is added.
+  handle_path /ticketing/* {
+    reverse_proxy ticketing-api:8080
+  }
+  handle_path /membership/* {
+    reverse_proxy membership-api:8080
+  }
+  respond "NCRRA edge is configured; public routes are not yet enabled." 404
+}

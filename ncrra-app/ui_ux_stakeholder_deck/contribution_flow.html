@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; }
+.slide-container { width: 1280px; min-height: 720px; background: #f8f7f3; color: #0b1e3b; font-family: Arial, Helvetica, sans-serif; }
+.wrap { min-height: 720px; padding: 58px 76px 0; }
+.eyebrow { color: #007b78; font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+.head { display: grid; grid-template-columns: 1fr 320px; gap: 40px; margin-top: 12px; align-items: end; }
+h1 { margin: 0; font-size: 45px; line-height: 1.08; letter-spacing: -2.2px; font-weight: 800; }
+.sub { font-size: 16px; line-height: 1.45; color: #536173; }
+.body { display: grid; grid-template-columns: 1fr 330px; gap: 48px; margin-top: 46px; }
+.flow { border-top: 3px solid #b9d8d4; display: grid; grid-template-columns: repeat(3, 1fr); }
+.stage { min-height: 316px; border-right: 1px solid #d5dfdc; padding: 21px 22px 0; }
+.stage:first-child { background: #edf7f5; }
+.stage:last-child { border-right: none; }
+.number { color: #007b78; font-size: 14px; font-weight: 800; letter-spacing: 1.3px; }
+.stage h2 { margin: 16px 0 0; font-size: 23px; letter-spacing: -1px; line-height: 1.15; }
+.stage p { margin: 10px 0 0; color: #536173; font-size: 15px; line-height: 1.45; }
+.amount { margin-top: 22px; color: #0b1e3b; font-size: 26px; font-weight: 800; letter-spacing: -1px; }
+.status { display: inline-block; margin-top: 8px; background: #fff3da; color: #9a650f; padding: 6px 9px; font-size: 12px; font-weight: 700; }
+.trace { border-top: 3px solid #007b78; padding-top: 16px; }
+.trace-label { color: #007b78; font-size: 13px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; }
+.trace img { display: block; width: 300px; height: 200px; object-fit: contain; object-position: center; margin-top: 13px; background: #ffffff; }
+.trace p { margin: 13px 0 0; color: #536173; font-size: 14px; line-height: 1.45; }
+.footer { margin-top: 30px; border-top: 1px solid #cbd9d6; padding-top: 14px; font-size: 16px; line-height: 1.45; color: #536173; }
+.footer strong { color: #0b1e3b; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <div class="wrap">
+    <div class="eyebrow">Membership billing journey</div>
+    <div class="head">
+      <h1>Contributions are clear,<br />secure and traceable</h1>
+      <div class="sub">The member sees the annual association contribution, chooses an approved payment route, and receives a verifiable receipt with updated membership context.</div>
+    </div>
+    <div class="body">
+      <div class="flow">
+        <div class="stage">
+          <div class="number">01 · UNDERSTAND</div>
+          <h2>Show the purpose and amount</h2>
+          <p>Membership makes the annual NCRRA contribution, due date and member reference easy to understand before payment begins.</p>
+          <div class="amount">KES 6,000</div>
+          <div class="status">Due 01 Jul 2025</div>
+        </div>
+        <div class="stage">
+          <div class="number">02 · PAY</div>
+          <h2>Use a familiar secure route</h2>
+          <p>The payment choice is explicit: M-PESA or card. The member confirms through the approved payment provider, not inside a stored PIN experience.</p>
+          <div class="status">Provider confirmation required</div>
+        </div>
+        <div class="stage">
+          <div class="number">03 · RECORD</div>
+          <h2>Confirm and retain the receipt</h2>
+          <p>The result gives the payment reference, method, date and renewed membership state, with a receipt available in Account.</p>
+          <div class="status" style="background:#e8f5f2;color:#007b78;">Receipt available</div>
+        </div>
+      </div>
+      <div class="trace">
+        <div class="trace-label">Operational trace</div>
+        <img src="/home/ubuntu/projects/prototype-mobie-app-c03398ee/tenant_schema.png" alt="Contribution payment and ticketing relation diagram" />
+        <p>The member-facing journey remains simple while the platform retains an auditable record of charge, payment, receipt and membership status.</p>
+      </div>
+    </div>
+    <div class="footer"><strong>Billing rule:</strong> association contributions remain clearly separated from platform fees, and the app should never imply that NCRRA stores a member’s payment PIN.</div>
+  </div>
+</div>
+</body>
+</html>

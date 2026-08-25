@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style>
+*{box-sizing:border-box}body{margin:0}
+.slide-container{width:1280px;min-height:720px;background:#f8f7f3;color:#0b1e3b;font-family:Arial,Helvetica,sans-serif}
+.wrap{min-height:720px;padding:60px 82px 0}
+.eyebrow{font-size:14px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:#007b78}
+.top{display:flex;justify-content:space-between;align-items:end;margin-top:13px}
+.title{font-size:46px;line-height:1.08;letter-spacing:-2.3px;font-weight:800}
+.insight{width:360px;font-size:17px;line-height:1.45;color:#536173}
+.timeline{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:60px}
+.line{position:absolute;top:25px;left:78px;right:78px;height:2px;background:#c9d8d5}
+.stage{position:relative;z-index:1}
+.dot{width:52px;height:52px;border:2px solid #b9c7c5;border-radius:50%;background:#f8f7f3;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#65707b}
+.stage.done .dot{background:#007b78;border-color:#007b78;color:#fff}.stage.current .dot{border:4px solid #007b78;color:#007b78}
+.stage h2{margin:18px 0 0;font-size:24px;letter-spacing:-1px}
+.stage p{margin:8px 0 0;max-width:210px;font-size:15px;line-height:1.45;color:#536173}
+.tag{display:inline-block;margin-top:12px;padding:6px 9px;font-size:11px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;background:#e8f5f2;color:#007b78}
+.tag.wait{background:#fff3da;color:#9a650f}
+.roles{margin-top:24px;border-top:1px solid #cbd9d6;display:grid;grid-template-columns:1.2fr 1.2fr 1fr;padding-top:16px;gap:20px}
+.role h3{margin:0;font-size:15px;letter-spacing:1px;text-transform:uppercase;color:#007b78}
+.role p{margin:8px 0 0;font-size:16px;line-height:1.45;color:#536173}
+.role strong{color:#0b1e3b}
+</style>
+</head>
+<body>
+<div class="slide-container"><div class="wrap">
+  <div class="eyebrow">Ticket transparency</div>
+  <div class="top"><div class="title">Ticket timelines answer<br />“what happens next?”</div><div class="insight">A plain-language status tells the member whether NCRRA, a provider or the member owns the next action.</div></div>
+  <div class="timeline"><div class="line"></div>
+    <div class="stage done"><div class="dot">✓</div><h2>Submitted</h2><p>The member receives an immediate ticket reference and a copy of the submitted issue.</p><span class="tag">Member complete</span></div>
+    <div class="stage done"><div class="dot">2</div><h2>NCRRA triage</h2><p>NCRRA checks category, routing context and whether more member detail is needed.</p><span class="tag">NCRRA owns</span></div>
+    <div class="stage current"><div class="dot">3</div><h2>Awaiting provider</h2><p>The request has been routed; the interface makes waiting explicit rather than leaving the member guessing.</p><span class="tag wait">Provider next</span></div>
+    <div class="stage"><div class="dot">4</div><h2>Resolved</h2><p>The outcome is recorded, the member is notified and reopening remains possible when appropriate.</p><span class="tag">Member informed</span></div>
+  </div>
+  <div class="roles">
+    <div class="role"><h3>Member benefit</h3><p><strong>No status chasing.</strong> The member can see the live state, the next responsible party and a stable ticket reference.</p></div>
+    <div class="role"><h3>Association benefit</h3><p><strong>Accountable handoff.</strong> NCRRA can manage the queue and provide a clear update when a provider response changes the state.</p></div>
+    <div class="role"><h3>Notification rule</h3><p><strong>Notify on meaningful change.</strong> Avoid noisy alerts; link each notification back to the exact ticket timeline.</p></div>
+  </div>
+</div></div>
+</body>
+</html>

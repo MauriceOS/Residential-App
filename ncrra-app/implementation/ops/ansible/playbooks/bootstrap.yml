@@ -1,0 +1,54 @@
+---
+- name: Harden a new NCRRA VPS before application deployment
+  hosts: ncrra_platform
+  become: true
+  vars:
+    deploy_user: deploy
+  tasks:
+    - name: Install base security packages
+      ansible.builtin.apt:
+        update_cache: true
+        name: [ca-certificates, curl, fail2ban, ufw, unattended-upgrades, docker.io, docker-compose-v2]
+        state: present
+    - name: Create non-root deployment group
+      ansible.builtin.group:
+        name: "{{ deploy_user }}"
+        state: present
+    - name: Create non-root deployment user
+      ansible.builtin.user:
+        name: "{{ deploy_user }}"
+        group: "{{ deploy_user }}"
+        groups: docker
+        append: true
+        shell: /bin/bash
+        create_home: true
+    - name: Disable SSH password authentication
+      ansible.builtin.lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^#?PasswordAuthentication'
+        line: 'PasswordAuthentication no'
+      notify: Restart ssh
+    - name: Disable root SSH login
+      ansible.builtin.lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^#?PermitRootLogin'
+        line: 'PermitRootLogin no'
+      notify: Restart ssh
+    - name: Default deny incoming firewall traffic
+      community.general.ufw:
+        direction: incoming
+        policy: deny
+    - name: Allow public HTTPS only
+      community.general.ufw:
+        rule: allow
+        port: '{{ item }}'
+        proto: tcp
+      loop: ['80', '443']
+    - name: Enable UFW
+      community.general.ufw:
+        state: enabled
+  handlers:
+    - name: Restart ssh
+      ansible.builtin.service:
+        name: ssh
+        state: restarted

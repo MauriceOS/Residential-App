@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style>
+*{box-sizing:border-box}
+body{margin:0}
+.slide-container{width:1280px;min-height:720px;background:#f8f7f3;color:#0b1e3b;font-family:Arial,Helvetica,sans-serif}
+.wrap{min-height:720px;display:grid;grid-template-columns:385px 1fr;gap:72px;padding:67px 84px 0}
+.lead{border-top:5px solid #007b78;padding-top:18px}
+.eyebrow{font-size:14px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:#007b78}
+.lead h1{margin:17px 0 0;font-size:47px;line-height:1.07;letter-spacing:-2.4px}
+.lead p{margin:20px 0 0;font-size:19px;line-height:1.5;color:#536173}
+.prepared{margin-top:75px;border-top:1px solid #cbd9d6;padding-top:15px;font-size:15px;line-height:1.45;color:#536173}
+.prepared strong{color:#0b1e3b}
+.decisions{padding-top:3px}
+.decision{display:grid;grid-template-columns:72px 1fr;border-top:1px solid #cbd9d6;padding-top:19px;margin-top:19px}
+.decision:first-child{margin-top:0}
+.number{font-size:16px;letter-spacing:1px;font-weight:800;color:#007b78}
+.decision h2{margin:0;font-size:27px;letter-spacing:-1.2px;line-height:1.15}
+.decision p{margin:8px 0 0;font-size:17px;line-height:1.45;color:#536173}
+.milestone{margin-top:38px;background:#eaf5f2;padding:19px 22px 0}
+.milestone h3{margin:0;font-size:14px;letter-spacing:1.4px;text-transform:uppercase;color:#007b78}
+.milestone p{margin:10px 0 0;font-size:17px;line-height:1.45;color:#355257}
+.milestone strong{color:#0b1e3b}
+</style>
+</head>
+<body>
+<div class="slide-container"><div class="wrap">
+  <div class="lead">
+    <div class="eyebrow">Stakeholder decision gate</div>
+    <h1>Approve the member journey baseline</h1>
+    <p>The current prototype turns the NCRRA member promise into a testable service, contribution and association-engagement experience.</p>
+    <div class="prepared"><strong>Prepared by Maurice Osoro</strong><br />NCRRA Member App UI/UX Review</div>
+  </div>
+  <div class="decisions">
+    <div class="decision"><div class="number">01</div><div><h2>Confirm the member navigation model</h2><p>Approve the five persistent areas—Home, Services, Community, Benefits and Account—and the proposed labels before detailed Flutter component work starts.</p></div></div>
+    <div class="decision"><div class="number">02</div><div><h2>Approve the priority service and billing flows</h2><p>Validate the saved-connection request flow, ticket responsibility language, annual contribution context, payment-provider handoff and receipt outcome.</p></div></div>
+    <div class="decision"><div class="number">03</div><div><h2>Nominate the pilot validation group</h2><p>Select NCRRA members and staff to test the prototype, approve production copy and identify the real content, support and provider-routing rules needed for pilot launch.</p></div></div>
+    <div class="milestone"><h3>Next implementation milestone</h3><p><strong>Convert validated prototype journeys into a Flutter component backlog and API contract backlog</strong>, then run focused member task tests before committing full pilot scope.</p></div>
+  </div>
+</div></div>
+</body>
+</html>

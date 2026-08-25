@@ -1,0 +1,52 @@
+openapi: 3.1.0
+info:
+  title: NCRRA Ticketing API
+  version: 1.0.0-draft
+  description: Tenant scope is always derived from the verified OIDC token. The caller must not send a tenant identifier.
+paths:
+  /api/v1/tickets:
+    get:
+      operationId: listMemberTickets
+      summary: Search the authenticated member's tickets
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: q
+          schema: { type: string, maxLength: 120 }
+        - in: query
+          name: status
+          schema: { type: string, enum: [awaitingProvider, inProgress, resolved, closed] }
+        - in: query
+          name: service
+          schema: { type: string, enum: [electricity, water, property] }
+        - in: query
+          name: sort
+          schema: { type: string, enum: [newest, oldest, status], default: newest }
+      responses:
+        '200':
+          description: Tenant- and member-scoped ticket list
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [items]
+                properties:
+                  items:
+                    type: array
+                    items: { $ref: '#/components/schemas/TicketListItem' }
+        '401': { description: Missing or invalid access token }
+        '403': { description: Authenticated actor lacks required scope }
+components:
+  securitySchemes:
+    bearerAuth: { type: http, scheme: bearer, bearerFormat: JWT }
+  schemas:
+    TicketListItem:
+      type: object
+      required: [id, title, service, status, updatedAt]
+      properties:
+        id: { type: string, example: NCRRA-2481 }
+        title: { type: string }
+        service: { type: string, enum: [electricity, water, property] }
+        status: { type: string, enum: [awaitingProvider, inProgress, resolved, closed] }
+        updatedAt: { type: string, format: date-time }

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style>
+*{box-sizing:border-box}.slide-container{width:1280px;min-height:720px;background:#f8f7f3;color:#0b1e3b;font-family:Arial,Helvetica,sans-serif}.wrap{min-height:720px;padding:60px 82px 0}.eyebrow{font-size:14px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:#007b78}.top{display:flex;justify-content:space-between;align-items:end;margin-top:13px}.title{font-size:46px;line-height:1.08;letter-spacing:-2.3px;font-weight:800}.insight{width:376px;color:#536173;font-size:17px;line-height:1.45}.journey{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:22px;margin-top:55px}.rail{position:absolute;left:86px;right:86px;top:21px;height:2px;background:#b7d7d2}.stage{position:relative;z-index:1}.marker{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#f8f7f3;border:2px solid #a9beba;color:#65707b;font-size:15px;font-weight:800}.stage.active .marker{background:#007b78;border-color:#007b78;color:#fff}.stage h2{margin:17px 0 0;font-size:22px;letter-spacing:-1px}.stage p{margin:8px 0 0;max-width:185px;font-size:15px;line-height:1.42;color:#536173}.scope{margin-top:67px;border-top:1px solid #cadbd7;display:grid;grid-template-columns:1fr 1fr}.scope>div{padding-top:20px}.scope>div+div{border-left:1px solid #cadbd7;padding-left:42px}.scope h3{margin:0;font-size:15px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;color:#007b78}.scope p{margin:11px 0 0;max-width:455px;color:#536173;font-size:17px;line-height:1.45}.scope strong{color:#0b1e3b}.footer{margin-top:24px;padding-top:13px;border-top:3px solid #007b78;color:#253752;font-size:16px;line-height:1.42}.footer strong{color:#007b78}
+</style>
+</head>
+<body>
+<div class="slide-container"><div class="wrap">
+  <div class="eyebrow">Interactive review artefact</div>
+  <div class="top"><div class="title">The clickable prototype connects<br />priority journeys</div><div class="insight">The review experience is a functioning member-flow model—not a static screen gallery—so stakeholders can evaluate navigation, decisions and status language in context.</div></div>
+  <div class="journey"><div class="rail"></div>
+    <div class="stage active"><div class="marker">1</div><h2>Home</h2><p>Member status and priority actions provide the starting context.</p></div>
+    <div class="stage active"><div class="marker">2</div><h2>Service request</h2><p>Choose a saved connection, describe the issue and review routing consent.</p></div>
+    <div class="stage active"><div class="marker">3</div><h2>Ticket tracking</h2><p>See the responsible party, current state and expected follow-up.</p></div>
+    <div class="stage active"><div class="marker">4</div><h2>Contribution payment</h2><p>Review amount, choose a route and simulate a secure confirmation.</p></div>
+    <div class="stage active"><div class="marker">5</div><h2>Account outcome</h2><p>Receipt, membership state, preferences and privacy controls remain reachable.</p></div>
+  </div>
+  <div class="scope">
+    <div><h3>Implemented interaction scope</h3><p><strong>Connected flows:</strong> Home actions, bottom navigation, issue submission steps, ticket timeline, membership, contribution payment simulation, receipt state and notifications.</p></div>
+    <div><h3>Usability testing focus</h3><p><strong>Test task clarity:</strong> can a member report an outage, explain what happens next, pay a contribution and find an association update without instruction?</p></div>
+  </div>
+  <div class="footer"><strong>Prototype use:</strong> validate member comprehension before detailed Flutter component build, API integration and production content configuration.</div>
+</div></div>
+</body>
+</html>

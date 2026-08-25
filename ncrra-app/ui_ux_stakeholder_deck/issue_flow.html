@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; }
+.slide-container { width: 1280px; min-height: 720px; background: #f8f7f3; color: #0b1e3b; font-family: Arial, Helvetica, sans-serif; }
+.wrap { min-height: 720px; padding: 58px 76px 0; }
+.eyebrow { color: #007b78; font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+.title-row { display: flex; justify-content: space-between; align-items: end; margin-top: 12px; }
+h1 { margin: 0; font-size: 45px; line-height: 1.08; letter-spacing: -2px; font-weight: 800; }
+.insight { width: 390px; font-size: 17px; line-height: 1.45; color: #536173; }
+.flow { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 20px; }
+.step { border-top: 3px solid #c8dcda; padding-top: 12px; }
+.step.active { border-top-color: #007b78; }
+.num { color: #007b78; font-size: 15px; font-weight: 800; letter-spacing: 1.2px; }
+h2 { margin: 7px 0 0; font-size: 24px; line-height: 1.15; letter-spacing: -1px; }
+.copy { margin: 8px 0 0; font-size: 16px; line-height: 1.45; color: #536173; }
+.route { margin-top: 18px; background: #eaf5f2; padding: 18px 18px 0; min-height: 160px; }
+.route-label { color: #007b78; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
+.route h3 { margin: 10px 0 0; font-size: 25px; line-height: 1.18; letter-spacing: -1px; }
+.rule { border-top: 1px solid #bcd6d1; margin-top: 14px; padding-top: 12px; font-size: 15px; line-height: 1.45; color: #355257; }
+.rule strong { display: block; color: #0b1e3b; margin-bottom: 4px; }
+.footer { border-top: 1px solid #cadbd7; margin-top: 6px; padding-top: 12px; font-size: 16px; color: #536173; }
+.footer strong { color: #0b1e3b; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <div class="wrap">
+    <div class="eyebrow">Priority journey · Member services</div>
+    <div class="title-row">
+      <h1>Service requests move from<br />connection to action</h1>
+      <div class="insight">Saved service details remove repetition; an explicit review step ensures the member understands exactly how NCRRA will route the request.</div>
+    </div>
+    <div class="flow">
+      <div class="step active">
+        <div class="num">01 · CONNECT</div>
+        <h2>Start with a saved service reference</h2>
+        <p class="copy">The member selects an existing verified meter or account rather than typing sensitive identifiers again.</p>
+      </div>
+      <div class="step active">
+        <div class="num">02 · DESCRIBE</div>
+        <h2>Capture the useful detail, not a long story</h2>
+        <p class="copy">A short category, member explanation and optional evidence create a usable request for the support queue.</p>
+      </div>
+      <div class="step">
+        <div class="num">03 · REVIEW</div>
+        <h2>Confirm routing and sharing purpose</h2>
+        <p class="copy">Before submission, the member sees the selected service, the issue summary and the party responsible for the next action.</p>
+        <div class="route">
+          <div class="route-label">Review outcome</div>
+          <h3>“Send to NCRRA Support”</h3>
+          <div class="rule"><strong>Consent in context</strong>The saved meter reference is shared only to route this specific service request.</div>
+          <div class="rule"><strong>Expectation in context</strong>The member sees a response target and can track every update after submission.</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><strong>Why this matters:</strong> The service flow turns informal follow-up into an accountable, trackable member interaction without forcing members to repeatedly disclose provider details.</div>
+  </div>
+</div>
+</body>
+</html>

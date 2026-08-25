@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style>
+*{box-sizing:border-box}body{margin:0}
+.slide-container{width:1280px;min-height:720px;background:#f8f7f3;color:#0b1e3b;font-family:Arial,Helvetica,sans-serif}
+.wrap{min-height:720px;display:grid;grid-template-columns:365px 1fr;gap:60px;padding:56px 82px 0;align-items:start}
+.lead{border-top:5px solid #007b78;padding-top:18px}
+.eyebrow{font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#007b78;font-weight:700}
+.lead h1{margin:17px 0 0;font-size:43px;line-height:1.08;letter-spacing:-2.2px}
+.lead p{margin:18px 0 0;font-size:19px;line-height:1.5;color:#536173}
+.promise{margin-top:34px;padding-top:12px;border-top:1px solid #cbd9d6;font-size:17px;line-height:1.45;color:#253752}
+.promise strong{display:block;color:#007b78;margin-bottom:5px}
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #cbd9d6}
+.control{min-height:210px;padding:20px 22px 0;border-right:1px solid #d9e1df;border-bottom:1px solid #d9e1df}
+.control:nth-child(2n){border-right:none}
+.control:nth-child(3),.control:nth-child(4){border-bottom:none}
+.control.mint{background:#eaf5f2}
+.num{font-size:13px;letter-spacing:1.6px;font-weight:800;color:#007b78}
+.control h2{margin:11px 0 0;font-size:24px;line-height:1.16;letter-spacing:-1px}
+.control p{margin:8px 0 0;font-size:16px;line-height:1.45;color:#536173}
+.control.mint p{color:#355257}
+.rule{margin-top:26px;border-top:3px solid #007b78;padding-top:12px;font-size:16px;line-height:1.45;color:#536173}
+.rule strong{color:#0b1e3b}
+</style>
+</head>
+<body>
+<div class="slide-container"><div class="wrap">
+  <div class="lead">
+    <div class="eyebrow">Member trust layer</div>
+    <h1>Security is designed into the member experience</h1>
+    <p>Members should understand what data is used, why it is needed and where they can review or change the controls that affect their account.</p>
+    <div class="promise"><strong>Experience promise</strong>Use the minimum information needed for a member task, explain the purpose in context, and retain a visible path to account and privacy controls.</div>
+  </div>
+  <div>
+    <div class="controls">
+      <div class="control mint"><div class="num">01 · CONNECTIONS</div><h2>Provider details are masked by default</h2><p>Saved meter and account references are displayed as partial identifiers and are selected from a controlled member list rather than re-entered in every request.</p></div>
+      <div class="control"><div class="num">02 · CONSENT</div><h2>Sharing purpose is stated before routing</h2><p>The issue flow explains when NCRRA needs to use a saved service reference and restricts its stated purpose to routing that request.</p></div>
+      <div class="control"><div class="num">03 · ACCOUNT</div><h2>Low-friction protection remains visible</h2><p>Biometric access, password recovery, active-device review and notification settings live in a clear Account area rather than behind support channels.</p></div>
+      <div class="control mint"><div class="num">04 · RECOVERY</div><h2>Sensitive actions stay understandable</h2><p>Payment confirmation, password recovery and device changes should use short explanatory copy, a secure provider step where relevant and an auditable outcome.</p></div>
+    </div>
+    <div class="rule"><strong>Implementation rule:</strong> the UI does not claim to secure the system by itself; every visible control must map to the approved identity, RBAC, audit and provider-integration controls in the implementation blueprint.</div>
+  </div>
+</div></div>
+</body>
+</html>

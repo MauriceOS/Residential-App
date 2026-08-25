@@ -1,0 +1,136 @@
+{
+  "project_info": {
+    "title": "NCRRA Member App UI/UX Review",
+    "created": 1787654432.089,
+    "last_updated": 1787655046.445,
+    "total_slides": 12
+  },
+  "slides": [
+    {
+      "id": "cover",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "fragmented_journeys",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "design_principles",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "information_architecture",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "home_identity",
+      "state": "edited",
+      "pageNum": 5
+    },
+    {
+      "id": "issue_flow",
+      "state": "edited",
+      "pageNum": 6
+    },
+    {
+      "id": "ticket_tracking",
+      "state": "edited",
+      "pageNum": 7
+    },
+    {
+      "id": "contribution_flow",
+      "state": "edited",
+      "pageNum": 8
+    },
+    {
+      "id": "community_benefits",
+      "state": "edited",
+      "pageNum": 9
+    },
+    {
+      "id": "security_controls",
+      "state": "edited",
+      "pageNum": 10
+    },
+    {
+      "id": "clickable_prototype",
+      "state": "edited",
+      "pageNum": 11
+    },
+    {
+      "id": "approval_next",
+      "state": "edited",
+      "pageNum": 12
+    }
+  ],
+  "outline": [
+    {
+      "id": "cover",
+      "title": "NCRRA Member App UI/UX Review",
+      "summary": "Cover page: NCRRA member services, contribution and connected support journeys. Prepared by Maurice Osoro."
+    },
+    {
+      "id": "fragmented_journeys",
+      "title": "One trusted place for member tasks",
+      "summary": "Show the pain point of fragmented member support and the product promise of one clear destination."
+    },
+    {
+      "id": "design_principles",
+      "title": "Trusted member utility",
+      "summary": "Present the service-first, trust-visible, understandable-progress principles that guide the UI.",
+      "image_plan": "/home/ubuntu/projects/prototype-mobie-app-c03398ee/diagrams_microservice_architecture.png - Modular microservice architecture diagram"
+    },
+    {
+      "id": "information_architecture",
+      "title": "Five areas keep the app easy to learn",
+      "summary": "Explain Home, Services, Community, Benefits and Account navigation.",
+      "image_plan": "/home/ubuntu/projects/prototype-mobie-app-c03398ee/tenant_architecture.png - Tenant isolation and security architecture diagram"
+    },
+    {
+      "id": "home_identity",
+      "title": "The home screen makes value immediate",
+      "summary": "Show member identity, priority actions, ticket visibility and announcements."
+    },
+    {
+      "id": "issue_flow",
+      "title": "Service requests move from connection to action",
+      "summary": "Show the three-step issue flow using saved provider connections and routing consent."
+    },
+    {
+      "id": "ticket_tracking",
+      "title": "Ticket timelines answer what happens next",
+      "summary": "Show transparent ticket status, clear responsibility and member notification.",
+      "image_plan": "/home/ubuntu/projects/prototype-mobie-app-c03398ee/diagrams_provider_integration_flow.png - Provider integration flow diagram"
+    },
+    {
+      "id": "contribution_flow",
+      "title": "Contributions are clear, secure and traceable",
+      "summary": "Show annual contribution context, M-PESA/card selection and receipt outcome.",
+      "image_plan": "/home/ubuntu/projects/prototype-mobie-app-c03398ee/tenant_schema.png - Ticketing database relations ERD diagram"
+    },
+    {
+      "id": "community_benefits",
+      "title": "Community and benefits make membership active",
+      "summary": "Show announcement, events and member-eligible offer patterns."
+    },
+    {
+      "id": "security_controls",
+      "title": "Security is designed into the member experience",
+      "summary": "Show consent, masked connections, account controls and low-friction security."
+    },
+    {
+      "id": "clickable_prototype",
+      "title": "The clickable prototype connects priority journeys",
+      "summary": "Show the currently implemented interactive paths and testing approach."
+    },
+    {
+      "id": "approval_next",
+      "title": "Approve the member journey baseline",
+      "summary": "Summarize validation plan, decisions required and next implementation milestones."
+    }
+  ]
+}

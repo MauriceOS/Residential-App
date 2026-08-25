@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style>
+*{box-sizing:border-box}
+body{margin:0}
+.slide-container{width:1280px;min-height:720px;background:#f8f7f3;color:#0b1e3b;font-family:Arial,Helvetica,sans-serif}
+.wrap{min-height:720px;display:grid;grid-template-columns:350px 1fr;gap:36px;padding:54px 74px 0}
+.visual{display:flex;align-items:flex-start;justify-content:center;padding-top:4px}
+.visual img{width:245px;height:500px;object-fit:contain;border:5px solid #14233b}
+.content{padding-top:7px}
+.eyebrow{color:#007b78;font-size:14px;letter-spacing:2px;font-weight:700;text-transform:uppercase}
+.content h1{margin:14px 0 0;font-size:46px;line-height:1.08;letter-spacing:-2.25px;font-weight:800}
+.intro{margin:12px 0 0;max-width:660px;font-size:20px;line-height:1.45;color:#536173}
+.layers{margin-top:14px;border-top:1px solid #cbd9d6}
+.layer{display:grid;grid-template-columns:145px 1fr;gap:12px;padding-top:8px;margin-top:8px;border-top:1px solid #dce4e1}
+.layer:first-child{border-top:none}
+.layer-label{font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#007b78;font-weight:700}
+.layer h2{margin:0;font-size:23px;letter-spacing:-1px}
+.layer p{margin:6px 0 0;font-size:16px;line-height:1.43;color:#536173}
+.foot{margin-top:14px;padding-top:8px;border-top:3px solid #007b78;font-size:16px;line-height:1.4;color:#253752}
+.foot strong{color:#007b78}
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <div class="wrap">
+    <div class="visual"><img src="/home/ubuntu/upload/ncrra_ui_home.png" alt="NCRRA member app Home screen" /></div>
+    <div class="content">
+      <div class="eyebrow">Home experience</div>
+      <h1>The home screen makes value immediate</h1>
+      <p class="intro">Members should immediately see status and the next task.</p>
+      <div class="layers">
+        <div class="layer"><div class="layer-label">Identity</div><div><h2>Membership status creates immediate confidence</h2><p>The active member state, member ID and membership card link reassure members that they are in the correct NCRRA account.</p></div></div>
+        <div class="layer"><div class="layer-label">Action</div><div><h2>Four priority tasks are available at a glance</h2><p>Report an issue, track tickets, pay a contribution and reuse provider connections are visible before less-frequent features.</p></div></div>
+        <div class="layer"><div class="layer-label">Context</div><div><h2>Active work and association activity stay visible</h2><p>Open ticket state, announcements and member benefits show that the app is both a service channel and an active association space.</p></div></div>
+      </div>
+      <div class="foot"><strong>Home design rule:</strong> useful status first; discovery second; promotional content never displaces a member’s current task.</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

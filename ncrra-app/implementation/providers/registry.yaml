@@ -1,0 +1,23 @@
+# Provider integrations remain disabled until the agreement gate is complete. Do not store provider credentials here.
+providers:
+  - id: kplc
+    display_name: KPLC
+    mode: managed_operations
+    enabled: false
+    agreement_reference: null
+    credential_reference: null
+    permitted_actions: [service_ticket_handoff]
+  - id: sgr
+    display_name: SGR
+    mode: official_handoff
+    enabled: false
+    agreement_reference: null
+    credential_reference: null
+    permitted_actions: [member_offer_handoff]
+  - id: jambojet
+    display_name: Jambojet
+    mode: official_handoff
+    enabled: false
+    agreement_reference: null
+    credential_reference: null
+    permitted_actions: [member_offer_handoff]

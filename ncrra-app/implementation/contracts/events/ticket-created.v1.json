@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ncrra.example/events/ticket-created.v1.json",
+  "title": "ncrra.ticket.created.v1",
+  "type": "object",
+  "required": ["eventId", "occurredAt", "tenantId", "ticketId", "memberId", "service", "correlationId"],
+  "properties": {
+    "eventId": { "type": "string", "format": "uuid" },
+    "occurredAt": { "type": "string", "format": "date-time" },
+    "tenantId": { "type": "string", "format": "uuid" },
+    "ticketId": { "type": "string", "format": "uuid" },
+    "memberId": { "type": "string", "format": "uuid" },
+    "service": { "type": "string", "enum": ["electricity", "water", "property"] },
+    "correlationId": { "type": "string", "format": "uuid" }
+  },
+  "additionalProperties": false
+}

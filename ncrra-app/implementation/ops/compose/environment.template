@@ -1,0 +1,16 @@
+# Copy these names into the target host secret manager or deployment environment.
+# Do not commit real values or create plaintext production environment files in this repository.
+PUBLIC_DOMAIN=api.example.ncrra.org
+ACME_EMAIL=operations@example.ncrra.org
+POSTGRES_PASSWORD=managed-secret-reference
+KEYCLOAK_DB_PASSWORD=managed-secret-reference
+MEMBERSHIP_DB_PASSWORD=managed-secret-reference
+TICKETING_DB_PASSWORD=managed-secret-reference
+BILLING_DB_PASSWORD=managed-secret-reference
+KEYCLOAK_ADMIN=bootstrap-admin
+KEYCLOAK_ADMIN_PASSWORD=managed-secret-reference
+KEYCLOAK_INTERNAL_AUTHORITY=http://keycloak:8080/realms/ncrra-dev
+RABBITMQ_DEFAULT_USER=ncrra-service
+RABBITMQ_DEFAULT_PASS=managed-secret-reference
+GRAFANA_ADMIN_PASSWORD=managed-secret-reference
+OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318

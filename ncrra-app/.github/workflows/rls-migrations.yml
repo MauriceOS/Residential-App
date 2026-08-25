@@ -1,0 +1,86 @@
+name: Verify database migrations and tenant isolation
+
+on:
+  pull_request:
+    paths:
+      - "implementation/backend/dotnet/**/Persistence/Migrations/**"
+      - "implementation/backend/dotnet/**/Persistence/IntegrationTests/**"
+      - "implementation/ops/compose/postgres-init.sql"
+      - ".github/workflows/rls-migrations.yml"
+  push:
+    branches: [main]
+    paths:
+      - "implementation/backend/dotnet/**/Persistence/Migrations/**"
+      - "implementation/backend/dotnet/**/Persistence/IntegrationTests/**"
+      - "implementation/ops/compose/postgres-init.sql"
+      - ".github/workflows/rls-migrations.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  ephemeral-rls:
+    name: Apply migrations and prove tenant isolation
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      POSTGRES_PASSWORD: ncrra-ci-platform-only
+      KEYCLOAK_DB_PASSWORD: ncrra-ci-keycloak-only
+      MEMBERSHIP_DB_PASSWORD: ncrra-ci-membership-only
+      TICKETING_DB_PASSWORD: ncrra-ci-ticketing-only
+      BILLING_DB_PASSWORD: ncrra-ci-billing-only
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up .NET 10 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Install Entity Framework CLI
+        run: dotnet tool install --global dotnet-ef --version 10.0.4
+
+      - name: Start ephemeral PostgreSQL
+        run: |
+          docker run --detach --rm --name ncrra-rls-postgres \
+            --publish 5432:5432 \
+            --env POSTGRES_USER=platform_admin \
+            --env POSTGRES_PASSWORD="$POSTGRES_PASSWORD" \
+            --env POSTGRES_DB=platform_admin \
+            --env KEYCLOAK_DB_PASSWORD="$KEYCLOAK_DB_PASSWORD" \
+            --env MEMBERSHIP_DB_PASSWORD="$MEMBERSHIP_DB_PASSWORD" \
+            --env TICKETING_DB_PASSWORD="$TICKETING_DB_PASSWORD" \
+            --env BILLING_DB_PASSWORD="$BILLING_DB_PASSWORD" \
+            --volume "$GITHUB_WORKSPACE/implementation/ops/compose/postgres-init.sql:/docker-entrypoint-initdb.d/01-service-databases.sql:ro" \
+            postgres:17-alpine
+          for attempt in $(seq 1 45); do
+            docker exec ncrra-rls-postgres pg_isready -h 127.0.0.1 -U platform_admin -d platform_admin && break
+            sleep 2
+          done
+
+      - name: Generate and apply Ticketing migration
+        working-directory: implementation/backend/dotnet/Ncrra.Ticketing.Api
+        env:
+          TICKETING_MIGRATIONS_CONNECTION: Host=127.0.0.1;Port=5432;Database=ticketing;Username=ticketing_app;Password=ncrra-ci-ticketing-only
+        run: |
+          dotnet ef migrations script --idempotent --output /tmp/ticketing.sql
+          docker exec -i -e PGPASSWORD="$TICKETING_DB_PASSWORD" ncrra-rls-postgres \
+            psql -v ON_ERROR_STOP=1 -h 127.0.0.1 -U ticketing_app -d ticketing < /tmp/ticketing.sql
+          docker exec -i -e PGPASSWORD="$TICKETING_DB_PASSWORD" ncrra-rls-postgres \
+            psql -v ON_ERROR_STOP=1 -h 127.0.0.1 -U ticketing_app -d ticketing < Persistence/IntegrationTests/ticketing_rls_integration.sql
+
+      - name: Generate and apply Membership migration
+        working-directory: implementation/backend/dotnet/Ncrra.Membership.Api
+        env:
+          MEMBERSHIP_MIGRATIONS_CONNECTION: Host=127.0.0.1;Port=5432;Database=membership;Username=membership_app;Password=ncrra-ci-membership-only
+        run: |
+          dotnet ef migrations script --idempotent --output /tmp/membership.sql
+          docker exec -i -e PGPASSWORD="$MEMBERSHIP_DB_PASSWORD" ncrra-rls-postgres \
+            psql -v ON_ERROR_STOP=1 -h 127.0.0.1 -U membership_app -d membership < /tmp/membership.sql
+          docker exec -i -e PGPASSWORD="$MEMBERSHIP_DB_PASSWORD" ncrra-rls-postgres \
+            psql -v ON_ERROR_STOP=1 -h 127.0.0.1 -U membership_app -d membership < Persistence/IntegrationTests/membership_rls_integration.sql
+
+      - name: Stop ephemeral PostgreSQL
+        if: always()
+        run: docker rm --force ncrra-rls-postgres || true
