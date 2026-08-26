@@ -87,3 +87,27 @@
 - [x] Add explicit membership success and failure/error states reachable from member actions.
 - [x] Add an explicit billing no-payable-contribution empty state and a safe entry point.
 - [x] Extend widget coverage for the full billing and membership state matrix.
+
+## Port current NCRRA UI update from source-of-truth project
+
+- [x] Inventory the ncrra-app core modules, services, React pages, Flutter track and operations foundation.
+- [x] Review the old React drawer, Community, Benefits and service/provider icon implementation against the current approved source.
+- [x] Port the non-duplicative utility drawer, Home-only hamburger visibility, sentence-case Community/Benefits hierarchy and responsive interaction refinements.
+- [x] Replace generic lightning/provider icon usage with distinct Services catalogue, My connections and Kenya Power meter semantics.
+- [ ] Run typecheck, tests, build and visual verification, then commit and push the verified update to `main`. Verification has passed; commit and push are pending.
+
+## GitHub synchronization blocker
+
+- [ ] Resolve the GitHub credential/permission mismatch: API metadata reports push permission for `FIxiCentre`, but Git transport returns HTTP 403 for `MauriceOS/Residential-App`.
+- [ ] Push local commit `b106a9e` to `main` and verify the remote commit and working tree are synchronized.
+
+## Pull request delivery
+
+- [x] Create a dedicated branch containing local commit `b106a9e` and the required tracker update; branch `chore/sync-approved-ncrra-ui` is prepared locally.
+- [ ] Open a pull request from that branch into `main` with verification notes and the artifact-selection correction.
+- [ ] Verify the pull request URL, source/target branches and changed-file summary.
+- [ ] Refresh the GitHub CLI credential path and repository-local credential override, then retry the prepared branch push without force-pushing.
+
+## Manual repository delivery
+
+- [ ] Create and validate a clean ZIP of the verified NCRRA source branch, excluding credentials, build outputs and Git metadata.
