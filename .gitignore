@@ -7,3 +7,6 @@ Thumbs.db
 .idea/
 *.swp
 *~
+
+# Local sync extraction workspace
+_sync_extract/
