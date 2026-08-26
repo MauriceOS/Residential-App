@@ -5,7 +5,8 @@ import 'keycloak_oidc_session.dart';
 class AuthenticationComposition {
   AuthenticationComposition._({required this.session, required this.apiClient});
 
-  factory AuthenticationComposition({required String discoveryUrl, required String apiBaseUrl}) {
+  factory AuthenticationComposition(
+      {required String discoveryUrl, required String apiBaseUrl}) {
     final session = KeycloakOidcSession(
       configuration: KeycloakOidcConfiguration(
         discoveryUrl: discoveryUrl,
@@ -15,11 +16,11 @@ class AuthenticationComposition {
     );
     return AuthenticationComposition._(
       session: session,
-      apiClient: NcrraApiClient(baseUri: Uri.parse(apiBaseUrl), tokenProvider: session),
+      apiClient: NcrraApiClient(
+          baseUri: Uri.parse(apiBaseUrl), tokenProvider: session),
     );
   }
 
   final KeycloakOidcSession session;
   final NcrraApiClient apiClient;
-
 }

@@ -10,27 +10,44 @@ abstract interface class AccessTokenProvider {
 }
 
 class NcrraApiClient {
-  NcrraApiClient({required this.baseUri, required this.tokenProvider, http.Client? httpClient}) : _http = httpClient ?? http.Client();
+  NcrraApiClient(
+      {required this.baseUri,
+      required this.tokenProvider,
+      http.Client? httpClient})
+      : _http = httpClient ?? http.Client();
   final Uri baseUri;
   final AccessTokenProvider tokenProvider;
   final http.Client _http;
 
   Future<http.Response> get(String path, {Map<String, String>? query}) async {
     final token = await tokenProvider.getAccessToken();
-    final uri = baseUri.replace(path: '${baseUri.path}$path', queryParameters: query);
-    return _http.get(uri, headers: {if (token != null) 'Authorization': 'Bearer $token', 'Accept': 'application/json'});
+    final uri =
+        baseUri.replace(path: '${baseUri.path}$path', queryParameters: query);
+    return _http.get(uri, headers: {
+      if (token != null) 'Authorization': 'Bearer $token',
+      'Accept': 'application/json'
+    });
   }
 
-  Future<List<TicketItem>> listTickets({String? query, TicketStatus? status, TicketService? service, String sort = 'newest'}) async {
+  Future<List<TicketItem>> listTickets(
+      {String? query,
+      TicketStatus? status,
+      TicketService? service,
+      String sort = 'newest'}) async {
     final response = await get('/api/v1/tickets', query: {
       if (query != null && query.isNotEmpty) 'q': query,
       if (status != null) 'status': status.name,
       if (service != null) 'service': service.name,
       'sort': sort,
     });
-    if (response.statusCode != 200) throw StateError('Ticket request failed with ${response.statusCode}.');
+    if (response.statusCode != 200) {
+      throw StateError('Ticket request failed with ${response.statusCode}.');
+    }
     final payload = jsonDecode(response.body) as Map<String, dynamic>;
     // Map the server-owned ticket projection here. The sample UI uses previewTickets until OIDC/API wiring is complete.
-    return (payload['items'] as List<dynamic>? ?? const []).map((_) => throw UnimplementedError('Wire generated API contract DTOs here.')).toList();
+    return (payload['items'] as List<dynamic>? ?? const [])
+        .map((_) =>
+            throw UnimplementedError('Wire generated API contract DTOs here.'))
+        .toList();
   }
 }
