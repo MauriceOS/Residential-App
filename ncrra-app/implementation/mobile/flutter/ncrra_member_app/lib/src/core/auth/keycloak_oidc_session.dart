@@ -28,10 +28,13 @@ abstract interface class _TokenStore {
 
 class _ProtectedTokenStore implements _TokenStore {
   _ProtectedTokenStore({FlutterSecureStorage? storage})
-      : _storage = storage ?? const FlutterSecureStorage(
-          aOptions: AndroidOptions(migrateWithBackup: true),
-          iOptions: IOSOptions(accessibility: KeychainAccessibility.first_unlock_this_device),
-        );
+      : _storage = storage ??
+            const FlutterSecureStorage(
+              aOptions: AndroidOptions(migrateWithBackup: true),
+              iOptions: IOSOptions(
+                  accessibility:
+                      KeychainAccessibility.first_unlock_this_device),
+            );
 
   static const _storageKey = 'ncrra.oidc.session.v1';
   final FlutterSecureStorage _storage;
@@ -39,18 +42,23 @@ class _ProtectedTokenStore implements _TokenStore {
   @override
   Future<_StoredTokens?> read() async {
     final raw = await _storage.read(key: _storageKey);
-    return raw == null ? null : _StoredTokens.fromJson(jsonDecode(raw) as Map<String, dynamic>);
+    return raw == null
+        ? null
+        : _StoredTokens.fromJson(jsonDecode(raw) as Map<String, dynamic>);
   }
 
   @override
-  Future<void> write(_StoredTokens tokens) => _storage.write(key: _storageKey, value: jsonEncode(tokens.toJson()));
+  Future<void> write(_StoredTokens tokens) =>
+      _storage.write(key: _storageKey, value: jsonEncode(tokens.toJson()));
 
   @override
   Future<void> delete() => _storage.delete(key: _storageKey);
 }
 
 class KeycloakOidcSession implements AccessTokenProvider {
-  KeycloakOidcSession({required KeycloakOidcConfiguration configuration, FlutterAppAuth? appAuth})
+  KeycloakOidcSession(
+      {required KeycloakOidcConfiguration configuration,
+      FlutterAppAuth? appAuth})
       : _configuration = configuration,
         _appAuth = appAuth ?? const FlutterAppAuth(),
         _tokenStore = _ProtectedTokenStore();
@@ -77,9 +85,17 @@ class KeycloakOidcSession implements AccessTokenProvider {
   @override
   Future<String?> getAccessToken() async {
     final tokens = await _load();
-    if (tokens == null) return null;
-    if (tokens.expiresAt?.isAfter(DateTime.now().add(const Duration(seconds: 60))) ?? false) return tokens.accessToken;
-    if (tokens.refreshToken == null) return null;
+    if (tokens == null) {
+      return null;
+    }
+    if (tokens.expiresAt
+            ?.isAfter(DateTime.now().add(const Duration(seconds: 60))) ??
+        false) {
+      return tokens.accessToken;
+    }
+    if (tokens.refreshToken == null) {
+      return null;
+    }
     final refreshed = await _appAuth.token(
       TokenRequest(
         _configuration.clientId,
@@ -112,7 +128,11 @@ class KeycloakOidcSession implements AccessTokenProvider {
 }
 
 class _StoredTokens {
-  const _StoredTokens({required this.accessToken, this.refreshToken, this.idToken, this.expiresAt});
+  const _StoredTokens(
+      {required this.accessToken,
+      this.refreshToken,
+      this.idToken,
+      this.expiresAt});
 
   final String? accessToken;
   final String? refreshToken;
@@ -130,7 +150,9 @@ class _StoredTokens {
         accessToken: json['access_token'] as String?,
         refreshToken: json['refresh_token'] as String?,
         idToken: json['id_token'] as String?,
-        expiresAt: json['expires_at'] == null ? null : DateTime.parse(json['expires_at'] as String),
+        expiresAt: json['expires_at'] == null
+            ? null
+            : DateTime.parse(json['expires_at'] as String),
       );
 
   Map<String, dynamic> toJson() => {

@@ -1,4 +1,4 @@
-// NCRRA Trusted Member Utility: warm ivory, deep navy, quiet teal and restrained amber states.
+// NCRRA Trusted Member Utility: warm ivory, deep navy, quiet teal and restrained states.
 import 'package:flutter/material.dart';
 
 abstract final class NcrraColors {
@@ -14,7 +14,6 @@ abstract final class NcrraColors {
   static const border = Color(0xFFDEE4E8);
   static const mintSurface = Color(0xFFF3F5F7);
   static const mintBadge = Color(0xFFE7EEF5);
-  static const mintOrb = Color(0xFFEFF3F7);
   static const amberSurface = Color(0xFFF6E8D5);
   static const amberText = Color(0xFF8E4D1F);
   static const coral = Color(0xFFBA4C45);
@@ -36,31 +35,91 @@ abstract final class NcrraRadius {
 
 ThemeData ncrraTheme() {
   const textTheme = TextTheme(
-    displaySmall: TextStyle(fontFamily: 'Plus Jakarta Sans', fontSize: 34, height: 1.06, fontWeight: FontWeight.w800, letterSpacing: -2.2, color: NcrraColors.navy),
-    headlineSmall: TextStyle(fontFamily: 'Plus Jakarta Sans', fontSize: 27, height: 1.08, fontWeight: FontWeight.w800, letterSpacing: -1.5, color: NcrraColors.navy),
-    titleLarge: TextStyle(fontFamily: 'Plus Jakarta Sans', fontSize: 25, height: 1.15, fontWeight: FontWeight.w800, letterSpacing: -1.35, color: NcrraColors.navy),
-    titleMedium: TextStyle(fontFamily: 'Plus Jakarta Sans', fontSize: 21, height: 1.15, fontWeight: FontWeight.w800, letterSpacing: -1.05, color: NcrraColors.navy),
-    titleSmall: TextStyle(fontFamily: 'Manrope', fontSize: 15, height: 1.25, fontWeight: FontWeight.w800, color: NcrraColors.navy),
-    bodyLarge: TextStyle(fontFamily: 'Manrope', fontSize: 15, height: 1.6, fontWeight: FontWeight.w400, color: NcrraColors.secondaryText),
-    bodyMedium: TextStyle(fontFamily: 'Manrope', fontSize: 14, height: 1.45, fontWeight: FontWeight.w400, color: NcrraColors.secondaryText),
-    bodySmall: TextStyle(fontFamily: 'Manrope', fontSize: 12, height: 1.5, fontWeight: FontWeight.w400, color: NcrraColors.secondaryText),
-    labelLarge: TextStyle(fontFamily: 'Manrope', fontSize: 14, height: 1.2, fontWeight: FontWeight.w800, color: NcrraColors.navy),
-    labelMedium: TextStyle(fontFamily: 'Manrope', fontSize: 12, height: 1.2, fontWeight: FontWeight.w800, color: NcrraColors.navy),
-    labelSmall: TextStyle(fontFamily: 'Manrope', fontSize: 11, height: 1.2, fontWeight: FontWeight.w800, color: NcrraColors.mutedText),
+    displaySmall: TextStyle(
+        fontSize: 32,
+        height: 1.14,
+        fontWeight: FontWeight.w800,
+        letterSpacing: -0.9,
+        color: NcrraColors.navy),
+    headlineSmall: TextStyle(
+        fontSize: 26,
+        height: 1.15,
+        fontWeight: FontWeight.w800,
+        letterSpacing: -0.7,
+        color: NcrraColors.navy),
+    titleLarge: TextStyle(
+        fontSize: 24,
+        height: 1.2,
+        fontWeight: FontWeight.w800,
+        letterSpacing: -0.45,
+        color: NcrraColors.navy),
+    titleMedium: TextStyle(
+        fontSize: 20,
+        height: 1.25,
+        fontWeight: FontWeight.w800,
+        letterSpacing: -0.25,
+        color: NcrraColors.navy),
+    titleSmall: TextStyle(
+        fontSize: 15,
+        height: 1.3,
+        fontWeight: FontWeight.w800,
+        color: NcrraColors.navy),
+    bodyLarge: TextStyle(
+        fontSize: 15,
+        height: 1.5,
+        fontWeight: FontWeight.w400,
+        color: NcrraColors.secondaryText),
+    bodyMedium: TextStyle(
+        fontSize: 14,
+        height: 1.45,
+        fontWeight: FontWeight.w400,
+        color: NcrraColors.secondaryText),
+    bodySmall: TextStyle(
+        fontSize: 12,
+        height: 1.45,
+        fontWeight: FontWeight.w400,
+        color: NcrraColors.secondaryText),
+    labelLarge: TextStyle(
+        fontSize: 14,
+        height: 1.25,
+        fontWeight: FontWeight.w800,
+        color: NcrraColors.navy),
+    labelMedium: TextStyle(
+        fontSize: 12,
+        height: 1.25,
+        fontWeight: FontWeight.w800,
+        color: NcrraColors.navy),
+    labelSmall: TextStyle(
+        fontSize: 11,
+        height: 1.25,
+        fontWeight: FontWeight.w800,
+        color: NcrraColors.mutedText),
   );
 
   return ThemeData(
     useMaterial3: true,
+    fontFamily: 'Roboto',
     scaffoldBackgroundColor: NcrraColors.ivory,
-    colorScheme: const ColorScheme.light(primary: NcrraColors.actionNavy, onPrimary: NcrraColors.white, surface: NcrraColors.white, onSurface: NcrraColors.navy, secondary: NcrraColors.dustyBlue),
+    colorScheme: const ColorScheme.light(
+        primary: NcrraColors.actionNavy,
+        onPrimary: NcrraColors.white,
+        surface: NcrraColors.white,
+        onSurface: NcrraColors.navy,
+        secondary: NcrraColors.dustyBlue),
     textTheme: textTheme,
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: NcrraColors.white,
       contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
-      border: OutlineInputBorder(borderRadius: const BorderRadius.all(NcrraRadius.control), borderSide: const BorderSide(color: NcrraColors.border)),
-      enabledBorder: OutlineInputBorder(borderRadius: const BorderRadius.all(NcrraRadius.control), borderSide: const BorderSide(color: NcrraColors.border)),
-      focusedBorder: OutlineInputBorder(borderRadius: const BorderRadius.all(NcrraRadius.control), borderSide: const BorderSide(color: NcrraColors.teal, width: 1.5)),
+      border: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(NcrraRadius.control),
+          borderSide: const BorderSide(color: NcrraColors.border)),
+      enabledBorder: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(NcrraRadius.control),
+          borderSide: const BorderSide(color: NcrraColors.border)),
+      focusedBorder: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(NcrraRadius.control),
+          borderSide: const BorderSide(color: NcrraColors.teal, width: 1.5)),
       labelStyle: textTheme.labelLarge,
     ),
   );
