@@ -1,4 +1,4 @@
-package com.example.ncrra_member_app
+package org.ncrra.memberapp
 
 import io.flutter.embedding.android.FlutterActivity
 
