@@ -3,6 +3,11 @@ info:
   title: NCRRA Ticketing API
   version: 1.0.0-draft
   description: Tenant scope is always derived from the verified OIDC token. The caller must not send a tenant identifier.
+servers:
+  - url: https://api.example.ncrra.org
+    description: Production edge (replace with the deployed host)
+  - url: http://localhost
+    description: Local Caddy edge for development
 paths:
   /api/v1/tickets:
     get:

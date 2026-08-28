@@ -2,19 +2,18 @@
 
 **Prepared by Maurice Osoro**
 
-This directory contains maintained documentation for engineers, operators and reviewers. Historical research and source material is kept separately under `brainstorm/`.
+This directory contains maintained documentation for engineers, operators and reviewers. Historical research and source material is kept separately under `brainstorm/` when that folder is added.
 
 ## Maintained documents
 
 | Location | Purpose |
 | --- | --- |
-| `maintainers-guide.md` | Handoff, ownership, security rules, change workflow and definition of done. |
 | `mobile/` | Flutter authentication, emulator/device testing and Android handoff notes. Includes `android-11-install-evidence.md` for the recorded Windows/ADB storage failure and safe retry path, `navigation-ownership.md` for drawer and bottom-navigation rules, and `icon-semantics.md` for the approved icon mapping, hamburger placement and sentence-case hierarchy. |
-| `ui_ux_deck_content.md` | Stakeholder UI/UX presentation content. |
-| `product/tubik-informed-mobile-screen-adaptations.md` | NCRRA-specific recommendations adapted from the supplied Tubik screen-pattern reference. |
-| `product/tubik-motion-review-notes.md` | Review notes for restrained, purposeful motion and feedback patterns adapted from the supplied animation reference. |
 | `verification/runtime-log-audit.md` | Timestamped runtime-log findings, historical-error separation and post-correction verification notes. |
 | `architecture/cross-track-preview-apk-alignment.md` | React-preview versus Flutter-APK source-of-truth rules, parity matrix and checksum-based device comparison procedure. |
+| `../ui_ux_deck_content.md` | Stakeholder UI/UX presentation content. |
+| `../figma_reproduction_prompt.md` | Exact Figma reconstruction specification for the approved prototype. |
+| `../ideas.md` | Product design direction and visual principles. |
 
 ## Implementation references
 

@@ -44,10 +44,33 @@ class NcrraApiClient {
       throw StateError('Ticket request failed with ${response.statusCode}.');
     }
     final payload = jsonDecode(response.body) as Map<String, dynamic>;
-    // Map the server-owned ticket projection here. The sample UI uses previewTickets until OIDC/API wiring is complete.
-    return (payload['items'] as List<dynamic>? ?? const [])
-        .map((_) =>
-            throw UnimplementedError('Wire generated API contract DTOs here.'))
+    final items = payload['items'] as List<dynamic>? ?? const [];
+    return items
+        .whereType<Map<String, dynamic>>()
+        .map(_parseTicketListItem)
         .toList();
+  }
+
+  TicketItem _parseTicketListItem(Map<String, dynamic> json) {
+    final updatedAt = DateTime.tryParse(json['updatedAt'] as String? ?? '') ??
+        DateTime.fromMillisecondsSinceEpoch(0);
+    return TicketItem(
+      id: json['id'] as String,
+      title: json['title'] as String,
+      service: TicketService.values.byName(json['service'] as String),
+      status: TicketStatus.values.byName(json['status'] as String),
+      updatedLabel: _formatUpdatedLabel(updatedAt),
+      order: updatedAt.millisecondsSinceEpoch,
+      detail: json['title'] as String,
+    );
+  }
+
+  String _formatUpdatedLabel(DateTime updatedAt) {
+    final local = updatedAt.toLocal();
+    final date =
+        '${local.year}-${local.month.toString().padLeft(2, '0')}-${local.day.toString().padLeft(2, '0')}';
+    final time =
+        '${local.hour.toString().padLeft(2, '0')}:${local.minute.toString().padLeft(2, '0')}';
+    return 'Updated $date · $time';
   }
 }

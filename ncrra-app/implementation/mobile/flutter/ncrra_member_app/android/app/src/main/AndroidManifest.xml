@@ -5,7 +5,7 @@
         android:icon="@mipmap/ic_launcher"
         android:allowBackup="false">
         <activity
-            android:name="com.example.ncrra_member_app.MainActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:launchMode="singleTop"
             android:taskAffinity=""
